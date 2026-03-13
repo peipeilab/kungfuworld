@@ -1,11 +1,702 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+const pageTitle = "KungfuWorld | Discover the World of Chinese Kung Fu";
+const pageDescription =
+  "Explore Chinese kung fu styles, masters, beginner guides, martial arts culture, and blog articles.";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const coreSections = [
+  {
+    title: "Styles",
+    description: "Start with a real style page and explore the foundations of Shaolin Kung Fu.",
+    href: "/styles",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Masters",
+    description: "Meet an influential martial arts teacher and understand his legacy.",
+    href: "/masters",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Guides",
+    description: "Follow a beginner-friendly learning path and take your first steps into kung fu.",
+    href: "/guides",
+    image: "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Culture",
+    description: "Go beyond technique and explore the deeper meaning behind kung fu.",
+    href: "/culture",
+    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+const featuredTopics = [
+  {
+    title: "What Is Shaolin Kung Fu?",
+    description:
+      "A beginner-friendly introduction to Shaolin Kung Fu, including its history, training focus, and cultural meaning.",
+    href: "/styles/what-is-shaolin-kung-fu",
+    tag: "Style",
+  },
+  {
+    title: "Ip Man",
+    description:
+      "Learn about the Wing Chun master whose teaching legacy helped shape modern martial arts history.",
+    href: "/masters/ip-man",
+    tag: "Master",
+  },
+  {
+    title: "How to Start Learning Kung Fu",
+    description:
+      "A practical beginner guide to taking the first steps in Chinese martial arts training.",
+    href: "/guides/how-to-start-learning-kung-fu",
+    tag: "Guide",
+  },
+  {
+    title: "What Does Kung Fu Really Mean?",
+    description:
+      "Explore the deeper meaning of kung fu through discipline, effort, and personal development.",
+    href: "/culture/what-does-kung-fu-mean",
+    tag: "Culture",
+  },
+];
+
+const latestPosts = [
+  {
+    title: "What Is Shaolin Kung Fu?",
+    description:
+      "A beginner-friendly introduction to one of the most recognized kung fu traditions.",
+    href: "/styles/what-is-shaolin-kung-fu",
+    date: "March 12, 2026",
+    category: "Styles",
+  },
+  {
+    title: "How to Start Learning Kung Fu",
+    description:
+      "A practical beginner guide to starting Chinese martial arts training.",
+    href: "/guides/how-to-start-learning-kung-fu",
+    date: "March 12, 2026",
+    category: "Guides",
+  },
+  {
+    title: "Ip Man",
+    description:
+      "A short look at the life and legacy of one of the most famous Wing Chun masters.",
+    href: "/masters/ip-man",
+    date: "March 12, 2026",
+    category: "Masters",
+  },
+];
+
+const beginnerLinks = [
+  {
+    title: "Start with a Beginner Guide",
+    href: "/guides/how-to-start-learning-kung-fu",
+  },
+  {
+    title: "Explore a Real Style Page",
+    href: "/styles/what-is-shaolin-kung-fu",
+  },
+  {
+    title: "Learn the Meaning of Kung Fu",
+    href: "/culture/what-does-kung-fu-mean",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={pageDescription} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="logo">KungfuWorld</a>
+
+        <nav class="menu">
+          <a href="/" class="active">Home</a>
+          <a href="/styles">Styles</a>
+          <a href="/masters">Masters</a>
+          <a href="/guides">Guides</a>
+          <a href="/culture">Culture</a>
+          <a href="/blog">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <p class="eyebrow">Traditional Martial Arts • Modern Learning</p>
+          <h1>Discover the World of Chinese Kung Fu</h1>
+          <p class="hero-text">
+            Explore styles, masters, beginner guides, martial arts culture, and meaningful stories from Chinese kung fu.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/styles">Explore Styles</a>
+            <a class="btn btn-secondary" href="/guides">Start Learning</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">Explore</p>
+            <h2>Start with the essentials</h2>
+            <p>
+              Clear topic hubs make the site easier to browse and help search engines understand your content structure.
+            </p>
+          </div>
+
+          <div class="grid grid-4">
+            {coreSections.map((item) => (
+              <a class="feature-card" href={item.href}>
+                <div
+                  class="feature-image"
+                  style={`background-image: url('${item.image}');`}
+                ></div>
+                <div class="feature-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <span class="text-link">Explore →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">Featured Topics</p>
+            <h2>Popular entry points for readers</h2>
+            <p>
+              Start from real pages that already exist across styles, masters, guides, and culture.
+            </p>
+          </div>
+
+          <div class="grid grid-2">
+            {featuredTopics.map((item) => (
+              <a class="topic-card" href={item.href}>
+                <span class="topic-tag">{item.tag}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head section-head-inline">
+            <div>
+              <p class="section-kicker">Latest Content</p>
+              <h2>Fresh pages to explore</h2>
+            </div>
+            <a class="text-link" href="/blog">Visit blog →</a>
+          </div>
+
+          <div class="grid grid-3">
+            {latestPosts.map((post) => (
+              <article class="post-card">
+                <div class="post-meta">
+                  <span>{post.category}</span>
+                  <span>•</span>
+                  <time>{post.date}</time>
+                </div>
+                <h3>
+                  <a href={post.href}>{post.title}</a>
+                </h3>
+                <p>{post.description}</p>
+                <a class="text-link" href={post.href}>Read more →</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container beginner-box">
+          <div class="beginner-copy">
+            <p class="section-kicker">New to Kung Fu?</p>
+            <h2>Start here</h2>
+            <p>
+              Follow a simple path from beginner learning to style knowledge and cultural understanding.
+            </p>
+          </div>
+
+          <div class="beginner-links">
+            {beginnerLinks.map((item) => (
+              <a href={item.href} class="beginner-link">
+                <span>{item.title}</span>
+                <span>→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container subscribe-box">
+          <p class="section-kicker">Stay Connected</p>
+          <h2>Keep building your kung fu knowledge</h2>
+          <p>
+            Explore styles, masters, guides, culture, and blog articles as the site grows.
+          </p>
+
+          <div class="hero-actions center-actions">
+            <a class="btn btn-primary" href="/blog">Read the Blog</a>
+            <a class="btn btn-secondary dark-secondary" href="/culture">Explore Culture</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a href="/" class="logo">KungfuWorld</a>
+          <p class="footer-text">
+            An English-language platform about Chinese kung fu styles, masters, guides, culture, and blog content.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="/styles">Styles</a>
+          <a href="/masters">Masters</a>
+          <a href="/guides">Guides</a>
+          <a href="/culture">Culture</a>
+          <a href="/blog">Blog</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :root {
+    --bg: #f7f3ee;
+    --surface: #ffffff;
+    --surface-soft: #f1ebe4;
+    --text: #1f1a17;
+    --muted: #6f655d;
+    --line: rgba(31, 26, 23, 0.08);
+    --accent: #1f1a17;
+    --radius: 24px;
+    --shadow: 0 10px 30px rgba(20, 16, 12, 0.06);
+    --max-width: 1200px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    width: min(var(--max-width), calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(12px);
+    background: rgba(247, 243, 238, 0.78);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .menu {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .menu a.active,
+  .menu a:hover {
+    color: var(--text);
+  }
+
+  .hero {
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    background-image: url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(18, 14, 10, 0.72), rgba(18, 14, 10, 0.22)),
+      linear-gradient(to top, rgba(18, 14, 10, 0.18), transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 96px 0;
+    max-width: 760px;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    margin: 0 0 12px;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-text {
+    margin-top: 20px;
+    max-width: 620px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .center-actions {
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: #111;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .dark-secondary {
+    color: var(--text);
+    border-color: var(--line);
+    background: transparent;
+  }
+
+  .dark-secondary:hover {
+    background: var(--surface-soft);
+  }
+
+  .section {
+    padding: 88px 0;
+  }
+
+  .section-soft {
+    background: var(--surface-soft);
+  }
+
+  .section-head {
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  .section-head h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .section-head p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .section-head-inline {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: unset;
+  }
+
+  .grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .feature-card,
+  .topic-card,
+  .post-card,
+  .beginner-box,
+  .subscribe-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .feature-card {
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .feature-card:hover,
+  .topic-card:hover,
+  .post-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .feature-image {
+    aspect-ratio: 4 / 5;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .feature-body {
+    padding: 20px;
+  }
+
+  .feature-body h3,
+  .topic-card h3,
+  .post-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .feature-body p,
+  .topic-card p,
+  .post-card p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .text-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-weight: 600;
+  }
+
+  .topic-card {
+    padding: 26px;
+  }
+
+  .topic-tag {
+    display: inline-flex;
+    margin-bottom: 14px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .post-card {
+    padding: 24px;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .beginner-box {
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .beginner-copy h2,
+  .subscribe-box h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .beginner-copy p,
+  .subscribe-box p,
+  .footer-text {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .beginner-links {
+    display: grid;
+    gap: 14px;
+  }
+
+  .beginner-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    font-weight: 600;
+  }
+
+  .subscribe-box {
+    padding: 40px 28px;
+    text-align: center;
+  }
+
+  .site-footer {
+    padding: 40px 0 56px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+  }
+
+  @media (max-width: 1024px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .menu {
+      display: none;
+    }
+
+    .hero {
+      min-height: 72vh;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .beginner-box {
+      grid-template-columns: 1fr;
+    }
+
+    .section-head-inline {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .hero-content {
+      padding: 72px 0;
+    }
+  }
+</style>
