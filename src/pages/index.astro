@@ -8,25 +8,31 @@ const coreSections = [
     title: "Styles",
     description: "Start with a real style page and explore the foundations of Shaolin Kung Fu.",
     href: "/styles",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/styles-cover.png",
   },
   {
     title: "Masters",
     description: "Meet an influential martial arts teacher and understand his legacy.",
     href: "/masters",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/masters-cover.png",
   },
   {
     title: "Guides",
     description: "Follow a beginner-friendly learning path and take your first steps into kung fu.",
     href: "/guides",
-    image: "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/Guides-cover.png",
   },
   {
     title: "Culture",
     description: "Go beyond technique and explore the deeper meaning behind kung fu.",
     href: "/culture",
-    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/Culture-cover.png",
+  },
+  {
+    title: "Blog",
+    description: "Read articles, insights, and stories about Chinese kung fu, training, and culture.",
+    href: "/blog",
+    image: "/images/Blog-cover.png",
   },
 ];
 
@@ -154,7 +160,7 @@ const beginnerLinks = [
             </p>
           </div>
 
-          <div class="grid grid-4">
+          <div class="grid grid-5">
             {coreSections.map((item) => (
               <a class="feature-card" href={item.href}>
                 <div
@@ -365,7 +371,7 @@ const beginnerLinks = [
     min-height: 82vh;
     display: flex;
     align-items: center;
-    background-image: url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=80");
+    background-image: url("/images/home-hero.png");
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -508,8 +514,8 @@ const beginnerLinks = [
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .grid-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .grid-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .feature-card,
@@ -660,12 +666,18 @@ const beginnerLinks = [
     color: var(--muted);
   }
 
+  @media (max-width: 1200px) {
+    .grid-5 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 1024px) {
-    .grid-4 {
+    .grid-3 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .grid-3 {
+    .grid-5 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
@@ -685,7 +697,7 @@ const beginnerLinks = [
 
     .grid-2,
     .grid-3,
-    .grid-4,
+    .grid-5,
     .beginner-box {
       grid-template-columns: 1fr;
     }
