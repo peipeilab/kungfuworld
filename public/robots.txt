@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kungfuworld.net/sitemap.xml
+Sitemap: https://kungfuworld.net/sitemap-index.xml
