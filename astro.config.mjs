@@ -1,10 +1,7 @@
-import { defineConfig } from 'astro/config'
-import sitemap from '@astrojs/sitemap'
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://peipeilab.com',
-
-  integrations: [
-    sitemap()
-  ]
-})
+  site: 'https://kungfuworld.net',
+  integrations: [sitemap()],
+});
